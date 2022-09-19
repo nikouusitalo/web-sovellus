@@ -12,7 +12,7 @@ Ext.define("MyApp.view.AuthorizationForm", {
 
   items: [
     {
-      xtype: "form",
+      xtype: "fieldset",
       width: 300,
       title: "Log in",
       items: [
@@ -25,7 +25,7 @@ Ext.define("MyApp.view.AuthorizationForm", {
         {
           xtype: "textfield",
           anchor: "100%",
-          itemId: "pass",
+          itemId: "password",
           inputType: "password",
           fieldLabel: "Password",
         },
@@ -39,4 +39,3 @@ Ext.define("MyApp.view.AuthorizationForm", {
     },
   ],
 });
-21;

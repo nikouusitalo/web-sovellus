@@ -14,10 +14,10 @@ Ext.define("MyApp.controller.Authentication", {
   onLoginClick: function (button, e, e0pts) {
     var formPanel = button.up("form"),
       user = formPanel.down("textfield#user").getValue(),
-      pass = formPanel.down("textfield#pass").getValue();
+      pass = formPanel.down("textfield#password").getValue();
 
     Ext.Ajax.request({
-      url: "testu",
+      url: "php/login.php",
       params: {
         user: user,
         password: pass,
@@ -40,8 +40,9 @@ Ext.define("MyApp.controller.Authentication", {
             buttons: Ext.Msg.OK,
           });
         } else {
+          console.log(result);
           Ext.Msg.show({
-            title: "Erro",
+            title: "Error",
             msg: result.msg,
             icon: Ext.Msg.ERROR,
             buttons: Ext.Msg.OK,
@@ -50,7 +51,7 @@ Ext.define("MyApp.controller.Authentication", {
       },
       failure: function (conn, response, options, eOpts) {
         var redirect = "./index.html";
-        window.location = redirect;
+        //window.location = redirect;
         Ext.Msg.show({
           title: "Error - Ota yhteyttä admin",
           msg: conn.responseText,
